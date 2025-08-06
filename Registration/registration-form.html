@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <!-- Tailwind CSS CDN for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="asset/style.css"> <!-- Link to your external CSS file -->
+    <link rel="shortcut icon" href="asset/download.jpg" type="image/x-icon">
+</head>
+<body>
+    <!-- Background Video Section -->
+    <video autoplay muted loop id="bgVideo" class="background-video">
+        <source src="asset/cultured.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <header class="w-full fixed top-0 left-0 z-20">
+        <nav class="bg-gray-900 bg-opacity-70 py-4 px-6 shadow-lg">
+            <ul class="flex justify-center space-x-8">
+                <li><a href="index.html" class="text-white text-lg font-bold hover:text-blue-400 transition duration-300">sign-out</a></li>
+                <!-- Sign Out link removed as there's no login/signup -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Registration Form Container - Always visible -->
+    <div class="form-container bg-white bg-opacity-90 p-8 rounded-2xl shadow-2xl w-full max-w-2xl mx-4 sm:mx-auto relative z-10 my-20" id="main-content">
+        <h1 class="text-4xl font-bold text-center text-gray-800 mb-6">Hello Student, welcome to WIT</h1>
+        <p class="text-lg text-center text-gray-700 mb-8">Please register first by filling out the form below. Thank you :)</p>
+
+        <form id="registration-form" class="space-y-6">
+            <!-- Program and Year Level Selection -->
+            <fieldset class="form-group radio-group border border-gray-300 p-4 rounded-lg shadow-sm">
+                <legend class="text-lg font-semibold text-gray-800 mb-4">Select Your Academic Details:</legend>
+                <div class="flex flex-col sm:flex-row sm:space-x-8">
+                    <label for="program-radio" class="inline-flex items-center text-gray-700 text-base mb-2 sm:mb-0">
+                        <input type="radio" id="program-radio" name="academic_choice" value="program" class="form-radio h-4 w-4 text-blue-600" required>
+                        <span class="ml-2">Program</span>
+                    </label>
+                    <label for="year-level-radio" class="inline-flex items-center text-gray-700 text-base">
+                        <input type="radio" id="year-level-radio" name="academic_choice" value="year_level" class="form-radio h-4 w-4 text-blue-600">
+                        <span class="ml-2">Year Level</span>
+                    </label>
+                </div>
+            </fieldset>
+
+            <!-- Terms and Conditions -->
+            <div class="form-group checkbox-group flex items-center">
+                <input type="checkbox" id="terms-checkbox" name="terms" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" required>
+                <label for="terms-checkbox" class="ml-2 block text-sm text-gray-900">
+                    I accept the <a href="#" class="font-medium text-blue-600 hover:text-blue-500 terms-link">terms and conditions</a>
+                </label>
+            </div>
+
+            <p class="info text-sm text-gray-600 italic">The school ensures data protection by adhering to relevant privacy laws...</p>
+
+            <!-- Additional Information Section -->
+            <div class="form-group">
+                <label for="profile-picture" class="block text-sm font-medium text-gray-700 mb-2">Upload a profile picture:</label>
+                <input type="file" id="profile-picture" name="profile_picture" accept="image/*"
+                       class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+            </div>
+
+            <div class="form-group">
+                <label for="birthdate" class="block text-sm font-medium text-gray-700 mb-2">Birthdate:</label>
+                <input type="date" id="birthdate" name="birthdate"
+                       class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition duration-300 ease-in-out transform hover:scale-105">
+            </div>
+
+            <div class="form-group">
+                <label for="specialization" class="block text-sm font-medium text-gray-700 mb-2">Specialization?</label>
+                <select id="specialization" name="specialization"
+                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition duration-300 ease-in-out transform hover:scale-105">
+                    <option value="">(select one)</option>
+                    <option value="web_dev">Web Dev</option>
+                    <option value="data_science">Data Science</option>
+                    <option value="cybersecurity">Cybersecurity</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="bio" class="block text-sm font-medium text-gray-700 mb-2">Bio:</label>
+                <textarea id="bio" name="bio" placeholder="I like coding on the beach..."
+                              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition duration-300 ease-in-out transform hover:scale-105 h-24"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div>
+                <button type="submit" class="submit-btn w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-300 ease-in-out transform hover:scale-105">
+                    Submit Registration
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Generic Message Modal -->
+    <div id="message-modal-overlay" class="modal-overlay hidden">
+        <div class="modal-content bg-white p-8 rounded-2xl shadow-2xl w-full max-w-sm mx-4 sm:mx-auto text-center relative">
+            <h3 id="message-modal-title" class="text-xl font-bold text-gray-800 mb-4"></h3>
+            <p id="message-modal-body" class="text-gray-700 mb-6"></p>
+            <button id="message-modal-close-btn" class="py-2 px-6 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300">OK</button>
+        </div>
+    </div>
+
+    <!-- Link to your external JavaScript file -->
+    <script src="asset/script.js"></script>
+</body>
+</html>

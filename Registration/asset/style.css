@@ -1,0 +1,532 @@
+/* ========================================================= */
+/* --- Global Reset and Base Styles --- */
+/* ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+    text-decoration: none; /* Removes underlines from links */
+}
+
+body, html {
+    height: 100%; /* Make sure html and body take full height for video background */
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    color: #fff; /* Default text color for the page */
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+    overflow-x: hidden; /* Prevents horizontal scroll */
+    position: relative; /* Needed for z-index context */
+    z-index: 0;
+}
+
+
+/* ========================================================= */
+/* --- Background Video Styling --- */
+/* ========================================================= */
+
+#bgVideo {
+    position: fixed; /* Fixes the video to the viewport */
+    top: 0;
+    left: 0;
+    min-width: 100%; /* Ensures video covers full width */
+    min-height: 100%; /* Ensures video covers full height */
+    width: auto; /* Ensures video scales correctly */
+    height: auto; /* Ensures video scales correctly */
+    z-index: -1; /* Puts the video behind other content */
+    object-fit: cover; /* Ensures the video covers the area, cropping if necessary */
+    filter: brightness(0.6); /* Darkens the video for better text readability */
+}
+
+
+/* ========================================================= */
+/* --- Header & Navigation Styling --- */
+/* ========================================================= */
+
+header {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background for header */
+    padding: 10px 20px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5); /* Updated shadow */
+    position: fixed; /* Keep it at the top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensure it spans full width */
+    z-index: 10;
+}
+
+header nav ul {
+    list-style: none; /* Remove bullet points */
+    display: flex;
+    justify-content: center; /* Center the navigation items */
+    gap: 30px; /* Space between navigation items */
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #2705e6; /* light blue color on hover */
+}
+
+
+/* ========================================================= */
+/* --- Header Buttons Styling (Sign-in, Sign-up) --- */
+/* ========================================================= */
+
+.header-btn {
+    display: inline-block;
+    background: linear-gradient(45deg, #1976d2, #2196f3);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease-in-out;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.header-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: all 0.4s ease-in-out;
+    z-index: -1;
+}
+
+.header-btn:hover::before {
+    left: 100%;
+}
+
+.header-btn:hover {
+    background: linear-gradient(45deg, #1565c0, #1976d2);
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 0 25px rgba(33, 150, 243, 0.7);
+    border-color: #81d4fa;
+    color: #fff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+}
+
+
+/* ========================================================= */
+/* --- Form Container & Content Styling --- */
+/* ========================================================= */
+
+.form-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Opaque white background */
+    padding: 2rem;
+    border-radius: 1.5rem; /* rounded-2xl */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-2xl */
+    width: 100%;
+    max-width: 48rem; /* Use 'rem' for better responsiveness. Equivalent to Tailwind's max-w-3xl. */
+    margin: 5rem auto; /* Centers the container horizontally and adds top/bottom margin */
+    position: relative;
+    z-index: 5;
+}
+
+.form-container h1 {
+    font-size: 2.25rem; /* text-4xl */
+    font-weight: 700; /* font-bold */
+    text-align: center;
+    color: #1a202c; /* text-gray-800 */
+    margin-bottom: 1.5rem; /* mb-6 */
+    text-shadow: none; /* Removed text-shadow for better contrast on a white background */
+}
+
+.form-container p {
+    font-size: 1.125rem; /* text-lg */
+    text-align: center;
+    color: #4a5568; /* text-gray-700 */
+    margin-bottom: 2rem; /* mb-8 */
+    text-shadow: none; /* Removed text-shadow */
+}
+
+p.info {
+    font-size: 0.875rem; /* text-sm */
+    color: #718096; /* text-gray-600 */
+    font-style: italic;
+}
+
+
+/* ------------------------------------------- */
+/* --- NEW: Centered Form and its content --- */
+/* ------------------------------------------- */
+.main-content-form {
+    max-width: 600px; /* Set a max-width for the form to enable centering */
+    margin: 5rem auto; /* Centers the form horizontally and adds vertical spacing */
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background for readability */
+    border-radius: 1.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    z-index: 5;
+    position: relative;
+}
+
+.main-content-form h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    text-align: center;
+    color: #1a202c; /* Dark text for readability on a light background */
+    margin-bottom: 1.5rem;
+}
+
+.main-content-form p {
+    font-size: 1.125rem;
+    text-align: center;
+    color: #4a5568; /* Slightly lighter dark text */
+    margin-bottom: 2rem;
+}
+
+
+/* ========================================================= */
+/* --- Form Elements Styling --- */
+/* ========================================================= */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* space-y-6 */
+}
+
+label {
+    display: block;
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 500; /* font-medium */
+    color: #4a5568; /* text-gray-700 */
+    margin-bottom: 0.5rem; /* mb-2 */
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+select,
+textarea {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #cbd5e0;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    font-size: 0.875rem;
+    color: #000; /* Set a specific text color for inputs */
+    transition: all 0.3s ease-in-out;
+}
+
+/* This is the key fix for the dropdown text color */
+select,
+select option {
+    color: #000; /* Ensures the selected option and dropdown options are black */
+    background-color: #fff; /* Ensures a white background for visibility */
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+    transform: scale(1.02);
+}
+
+input[type="file"] {
+    padding: 0;
+    border: none;
+    background: none;
+    box-shadow: none;
+    color: #6b7280;
+}
+
+input[type="file"]::file-selector-button {
+    margin-right: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    border: 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    background-color: #eff6ff;
+    color: #1d4ed8;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #dbeafe;
+}
+
+textarea {
+    min-height: 6rem;
+    resize: vertical;
+}
+
+fieldset.radio-group {
+    border: 1px solid #d1d5db;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+fieldset.radio-group legend {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 1rem;
+    padding: 0 0.5rem;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    height: 1rem;
+    width: 1rem;
+    color: #3b82f6;
+    border-color: #cbd5e0;
+    border-radius: 0.25rem;
+    box-shadow: none;
+    margin-top: 0;
+    vertical-align: middle;
+}
+
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+.checkbox-group label,
+.radio-group label {
+    display: inline-flex;
+    align-items: center;
+    color: #1a202c;
+    font-size: 0.875rem;
+    margin-bottom: 0;
+}
+
+.checkbox-group label .terms-link {
+    font-weight: 500;
+    color: #3b82f6;
+    text-decoration: none;
+}
+
+.checkbox-group label .terms-link:hover {
+    color: #2563eb;
+    text-decoration: underline;
+}
+
+.form-group.checkbox-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* --- Submit Button --- */
+
+.submit-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    color: #fff;
+    background-color: #16a34a;
+    font-size: 1.125rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.submit-btn:hover {
+    background-color: #15803d;
+    transform: scale(1.02);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.submit-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.5), 0 0 0 6px rgba(22, 163, 74, 0.3);
+}
+
+
+/* ========================================================= */
+/* --- Music Player Wrapper Styling --- */
+/* ========================================================= */
+
+.music-wrapper {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(255, 87, 34, 0.8);
+    padding: 10px 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 87, 34, 0.6);
+    z-index: 9999;
+}
+
+.play-btn {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(45deg, #ff5722, #ff9800);
+    border: 2px solid #ffcc80;
+    border-radius: 25px;
+    padding: 12px 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 87, 34, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.play-btn:hover {
+    background: linear-gradient(45deg, #e64a19, #fb8c00);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(255, 87, 34, 0.6);
+    border-color: #ffe0b2;
+    color: #fff;
+}
+
+#bgMusic {
+    display: flex;
+}
+
+
+/* ========================================================= */
+/* --- Modal Overlay & Content Styling --- */
+/* ========================================================= */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.modal-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-overlay > div {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Specific styling for login/signup modals */
+
+#login-modal .modal-content h2,
+#signup-modal .modal-content h2 {
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 0.75rem;
+}
+
+#login-modal .modal-content h2 {
+    color: #2563eb;
+}
+
+#signup-modal .modal-content h2 {
+    color: #9333ea;
+}
+
+#login-modal button[type="submit"] {
+    background-color: #2563eb;
+}
+
+#login-modal button[type="submit"]:hover {
+    background-color: #1d4ed8;
+}
+
+#signup-modal button[type="submit"] {
+    background-color: #9333ea;
+}
+
+#signup-modal button[type="submit"]:hover {
+    background-color: #7e22ce;
+}
+
+
+/* ========================================================= */
+/* --- Responsive Adjustments --- */
+/* ========================================================= */
+
+@media (max-width: 640px) {
+    .form-container {
+        width: 95%;
+        margin: 30px auto;
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+    
+    header nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    header nav ul li a {
+        font-size: 1rem;
+    }
+
+    .header-btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    .form-container h1 {
+        font-size: 2.5rem;
+    }
+
+    .form-container p {
+        font-size: 1.2rem;
+    }
+
+    .music-wrapper {
+        top: 10px;
+        left: 10px;
+        padding: 8px 15px;
+    }
+
+    .play-btn {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+
+    .form-group.checkbox-group {
+        justify-content: center;
+    }
+}

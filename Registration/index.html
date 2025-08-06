@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>welcome Student</title>
+    <link rel="stylesheet" href="asset/style.css"> 
+    <link rel="shortcut icon" href="asset/download.jpg" type="image/x-icon">
+</head>
+    
+    <body>
+    <video autoplay muted loop id="bgVideo" class="background-video">
+        <source src="asset/cultured.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="registration-form.html">Registration</a></li>
+                <li><a href="signin.html">Sign-in</a></li>
+                <li><a href="signup.html">Sign-up</a></li>
+            </ul>
+        </nav>
+    </header>
+<div class="music-wrapper">
+  <button class="play-btn" onclick="document.getElementById('bgMusic').play(); this.disabled = true; this.innerText = '🎵 Playing';" oncontextmenu="event.preventDefault(); return false;">
+    ▶ Play Music
+  </button>
+  <audio id="bgMusic" loop>
+    <source src="asset/watashi.mp3" type="audio/mp3">
+  </audio>
+</div>
+
+    <form action="container" class="main-content-form">
+        <h1>Hello Student welcome to WIT</h1>
+        <p>please sign in first just click on the top of the header thank you:)</p>
+    </form>
+
+    <script src="asset/script.js"></script>
+</body>
+</html>
