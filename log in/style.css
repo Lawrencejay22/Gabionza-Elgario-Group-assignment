@@ -1,0 +1,141 @@
+/* ===================================== */
+/* ==== Universal & Body Styles ==== */
+/* ===================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    font-size: 16px;
+    color: #222097;
+    background-image: url('abstract-digital-grid-black-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    /* Use 'position: relative;' on body to correctly position children */
+    position: relative;
+    padding: 20px; /* Added padding to prevent content from touching the edges */
+}
+
+/* ===================================== */
+/* ==== Form and Form Elements ==== */
+/* ===================================== */
+form {
+    background-color: rgba(173, 216, 230, 0.5); /* lightblue with transparency */
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    position: relative;
+    z-index: 1; /* Ensures form is on top of background */
+    backdrop-filter: blur(10px); /* Creates a frosted-glass effect */
+}
+
+h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #222097;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+form label {
+    display: block;
+    margin-top: 15px;
+    color: #340f9a;
+    text-transform: initial;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"] { /* Added type="email" for better practice */
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 3px solid #000000;
+    border-radius: 15px;
+    font-size: 13px;
+    transition: border-color 0.3s ease;
+}
+
+form input[type="text"]:focus,
+form input[type="password"]:focus,
+form input[type="email"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+form input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    border: none;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform to the transition */
+}
+
+form input[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+form input[type="submit"]:active {
+    background-color: #004085;
+    transform: scale(0.95);
+}
+
+form input[type="submit"]:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+}
+form .links {
+    text-align: center;
+    margin-top: 20px;
+}
+form .links p {
+    margin: 10px 0;
+    color: #222097;
+}
+form .links a {
+    color: #007bff;
+    text-decoration: none;
+}
+form .links a:hover {
+    text-decoration: underline;
+}
+form .form-switch-btn {
+    background-color: transparent;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: navy;
+}
+form .form-switch-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* ===================================== */
+/* ==== Footer Styles ==== */
+/* ===================================== */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #222097;
+    font-size: 14px;
+}
